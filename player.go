@@ -8,6 +8,15 @@ import (
 	"strconv"
 )
 
+func QueuePlayers(players int) {
+	for i:=1; i <= players; i++ {
+		Enqueue(Player{
+			name: i,
+			position: 0,
+		})
+	}
+}
+
 func GetPlayers() int {
 	reader := bufio.NewReader(os.Stdin)
 	for {
