@@ -8,6 +8,11 @@ import (
 	"strconv"
 )
 
+type Player struct {
+	name int
+	position int
+}
+
 func QueuePlayers(players int) {
 	for i:=1; i <= players; i++ {
 		Enqueue(Player{
@@ -24,7 +29,7 @@ func GetPlayers() int {
 		Input, _ := reader.ReadString('\n')
 		playerCount, _ := strconv.ParseFloat(strings.TrimSpace(Input), 64)
 		fmt.Println(playerCount)
-		if playerCount > 0 && playerCount < 5 {
+		if playerCount > 1 && playerCount < 5 {
 			return int(playerCount)
 		}
 	}

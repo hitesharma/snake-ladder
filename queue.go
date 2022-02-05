@@ -4,11 +4,6 @@ import (
 	"errors"
 )
 
-type Player struct {
-	name int
-	position int
-}
-
 // init players queue
 var queue []Player
 
