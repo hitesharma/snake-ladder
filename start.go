@@ -2,7 +2,14 @@ package main
 
 import "fmt"
 
-func StartGame() {
+func StartGame() map[int]int {
+	winners := map[int]int{
+		1:0,
+		2:0,
+		3:0,
+		4:0,
+	}
+	var count = 1
 	for {
 		currentPlayer, err := Dequeue()
 		if err != nil {
@@ -20,10 +27,13 @@ func StartGame() {
 			fmt.Println("Player: ", currentPlayer.name, "- ascends to -", currentPlayer.position)
 		}
 		if currentPlayer.position > 85 {
-			fmt.Println("Player: ~", currentPlayer.name, "~ Won")
+			fmt.Println("Player: ~", currentPlayer.name, "~ finished")
+			winners[count] = currentPlayer.name
+			count+=1
 		} else {
 			Enqueue(currentPlayer)
 		}
 		
 	}
+	return winners
 }
